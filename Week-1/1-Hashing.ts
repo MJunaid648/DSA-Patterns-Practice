@@ -18,3 +18,18 @@ function isAnagram(s: string, t: string): boolean {
   return true;
 }
 // console.log("Is anagram: ", isAnagram("aab", "aba"));
+
+function unsortedTwoSum(nums: number[], target: number): number[] {
+  let indexMap: Record<number, number> = {};
+  for (let i = 0; i < nums.length; i++) {
+    let currentNum = nums[i];
+    let diff = target - currentNum;
+    console.log("map:", indexMap);
+    console.log("diff:", diff);
+    if (diff in indexMap) return [i, indexMap[diff]];
+    indexMap[currentNum] = i;
+  }
+  return [0, 0];
+}
+
+// console.log(unsortedTwoSum([2, 7, 11, 15], 9));
